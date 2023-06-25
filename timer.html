@@ -320,13 +320,13 @@ function setCountdown(event) {
   const countdownContainer = document.getElementById("countdownContainer");
   countdownContainer.style.display = "block";
 
-  updateCountdown(); // Update countdown immediately
+  updateCountdown(); 
 
   const countdownInterval = setInterval(updateCountdown, 1000);
 
   function updateCountdown() {
     let now = new Date();
-    let timeRemaining = Math.max(0, countdownTime - now); // Ensure time remaining doesn't go negative
+    let timeRemaining = Math.max(0, countdownTime - now); 
 
     if (timeRemaining <= 0) {
       clearInterval(countdownInterval);
@@ -335,7 +335,7 @@ function setCountdown(event) {
       return;
     }
 
-    let secondsToDisplay = Math.ceil(timeRemaining / 1000); // Use Math.ceil to round up to the nearest integer
+    let secondsToDisplay = Math.ceil(timeRemaining / 1000); 
 
     const daysEl = document.getElementById("days");
     const hoursEl = document.getElementById("hours");
