@@ -1,0 +1,383 @@
+<html>
+    <head>
+      <title>Timer</title>
+        <link rel="stylesheet" href="timer.css">
+      <style>
+      
+        .footer {
+  background-color: #f8f8f8;
+  padding: 20px 0;
+}
+
+.footer-text {
+  color: #555;
+  font-size: 14px;
+  text-align: left;
+}
+
+.footer-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+.footer-links li {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.footer-links li:first-child {
+  margin-left: 0;
+}
+
+.footer-links a {
+  color: #555;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: #333;
+}
+
+  body {
+    background:rgb(170, 222, 231);
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex; 
+    justify-content: center;
+    margin: 0px; /* Prevents vertical scrolling */
+}
+.countdown {  
+    margin-top: 40px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#countdown-timer span {    
+    
+    display: inline-block;  
+    height: 40px;
+    padding: 1rem;
+    width: 120px;
+    margin: 0.5rem;
+    background-color: rgb(230,230,230);
+    border: 1px grey solid;
+}
+#futer{
+        margin-top:140px;
+        display:grid;
+    }
+
+span{
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background: #e7e7e7;
+        height: 100vh;
+    }
+    h3 {
+        text-align: center;
+        color: #413b3b;
+        text-transform: uppercase;
+        font-size: 80px;
+        font-family: 'Zen Tokyo Zoo', cursive;
+    }
+    h5 {
+        text-align: center;
+        color: #82807f;
+        margin: 80px auto;
+        font-size: 20px;
+        width: 50%;
+        line-height: 1.7;
+    }
+    .box {
+        text-align: center;
+    }
+    .button {
+        font-size: 1em;
+        padding: 15px 35px;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+        background: #403e3d;
+        border-radius: 50px;
+    }
+    .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.8);
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+    }
+    .overlay:target {
+        visibility: visible;
+        opacity: 1;
+    }
+    .wrapper {
+        margin: 70px auto;
+        padding: 20px;
+        background: #e7e7e7;
+        border-radius: 5px;
+        width: 30%;
+        position: relative;
+        transition: all 5s ease-in-out;
+    }
+    .wrapper h2 {
+        margin-top: 0;
+        color: #333;
+    }
+    .wrapper .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        transition: all 200ms;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+    }
+    .wrapper .close:hover {
+        color: #06D85F;
+    }
+    .wrapper .content {
+        max-height: 30%;
+        overflow: auto;
+    }
+    /*form*/
+    
+    .container {
+        border-radius: 5px;
+        background-color: #e7e7e7;
+        padding: 20px 0;
+    }
+    form label {
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 3px;
+    }
+    input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;  
+        align-items: center;
+    }
+    input[type="submit"] {
+        background-color: #413b3b;
+        color: #fff;
+        padding: 15px 50px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+    }
+    }   
+    #countdownForm{
+        width: 500px;
+        height: 300px;  
+        background-color: #fff; 
+        margin-top: 70px; 
+        padding-top: 20px; 
+        border: none;
+        border-radius: 30px;
+        
+    }   
+
+    input{  
+        border: none;
+        border-radius: 30px; 
+        background-color: #e6e6f2; 
+        height: 30px;
+        width: 300px; 
+        margin-left: 90px;
+        margin-bottom: 10px;
+
+    }  
+    label{
+        margin-left: 90px;  
+        margin-top: 10px;
+        font-size: large;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;  
+        
+    } 
+    #btn {
+    
+    position: absolute;
+    width: 160px;
+    height: 30px;
+    background: rgb(230, 98, 98);
+    color:white;
+    border-radius: 30px; 
+    margin-left: 10%;
+
+  }   
+  #days{  
+    background-color: #06D85F; 
+    padding-left: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-right: 40px; 
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    margin-left: 30px;  
+    margin-top: 200px;
+    
+  } 
+  p{
+    margin-top: 50px;
+  } 
+  pre{
+    font-size: larger; 
+    font-family: Arial, Helvetica, sans-serif; 
+
+  }
+  .popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  z-index: 9999;
+
+  img{
+    border: 5px solid #555;
+  }
+}
+
+      </style>
+    </head>
+
+<body>
+    
+    <form id="countdownForm">
+        <label for="day" >Days:</label></br>
+        <input type="number" id="day" name="day" placeholder="00" min="0" required></br>
+        
+        <label for="hour">Hours:</label></br>
+        <input type="number" id="hour" name="hour" placeholder="00" min="0" required></br>
+        
+        <label for="minit">Minutes:</label></br>
+        <input type="number" id="minit" name="minit" placeholder="00" min="0" required></br>
+        
+        <label for="secon">Seconds:</label></br>
+        <input type="number" id="secon" name="secon" placeholder="00" min="0" required></br>
+        
+        <button type="submit" id="btn">Set Countdown</button>
+      </form>
+      
+      
+      <table class="countdown" id="countdownContainer" style="display: none;" >
+        <tr id="countdown-timer">
+            <td><span id="days">x</span></td>
+            <td><span id="hours">x</span></td>
+            <td><span id="minutes">x</span></td>
+            <td><span id="seconds">x</span></td>
+        </tr>
+        <tr id="countdown-labels">
+            <td><span>Days</span></td>
+            <td><span>Hours</span></td>
+            <td><span>Minutes</span></td>
+            <td><span>Seconds</span></td>
+        </tr>
+    </table>
+      
+      <script>
+   function setCountdown(event) {
+  event.preventDefault(); 
+  const form = document.getElementById("countdownForm");
+  const daysInput = parseInt(form.elements["day"].value);
+  const hoursInput = parseInt(form.elements["hour"].value);
+  const minutesInput = parseInt(form.elements["minit"].value);
+  const secondsInput = parseInt(form.elements["secon"].value);
+
+  const countdownTime = new Date();
+  countdownTime.setDate(countdownTime.getDate() + daysInput);
+  countdownTime.setHours(countdownTime.getHours() + hoursInput);
+  countdownTime.setMinutes(countdownTime.getMinutes() + minutesInput);
+  countdownTime.setSeconds(countdownTime.getSeconds() + secondsInput);
+
+  form.style.display = "none";
+  const countdownContainer = document.getElementById("countdownContainer");
+  countdownContainer.style.display = "block";
+
+  const countdownInterval = setInterval(function() {
+    let now = new Date();
+    let timeRemaining = countdownTime - now;
+
+    if (timeRemaining <= 0) {
+      clearInterval(countdownInterval);
+      alert("Snooze!");
+      window.location.reload(); 
+      return;
+    }
+
+    let seconds = Math.floor(timeRemaining / 1000);
+    let minutes = Math.floor(timeRemaining / (1000 * 60));
+    let hours = Math.floor(timeRemaining / (1000 * 60 * 60));
+    let days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+    let daysToDisplay = days;
+    let hoursToDisplay = hours - (days * 24);
+    let minutesToDisplay = minutes - (hours * 60);
+    let secondsToDisplay = seconds - (minutes * 60);
+
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    if (daysToDisplay < 10)
+      daysEl.textContent = "0" + daysToDisplay;
+    else
+      daysEl.textContent = daysToDisplay;
+    if (hoursToDisplay < 10)
+      hoursEl.textContent = "0" + hoursToDisplay;
+    else
+      hoursEl.textContent = hoursToDisplay;
+    if (minutesToDisplay < 10)
+      minutesEl.textContent = "0" + minutesToDisplay;
+    else
+      minutesEl.textContent = minutesToDisplay;
+    if (secondsToDisplay < 10)
+      secondsEl.textContent = "0" + secondsToDisplay;
+    else
+      secondsEl.textContent = secondsToDisplay;
+  }, 1000);
+}
+
+const countdownForm = document.getElementById('countdownForm');
+countdownForm.addEventListener('submit', setCountdown);
+
+document.getElementById('showFormBtn').addEventListener('click', function() {
+  document.getElementById('popupForm').classList.add('show');
+});
+
+document.getElementById('popupForm').addEventListener('submit', function(e) {
+  e.preventDefault(); 
+  document.getElementById('popupForm').classList.remove('show');
+});
+
+      </script>
+      
+  </body>
+  </html>

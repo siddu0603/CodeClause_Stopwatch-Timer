@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analog Watch</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="clock">
+    <img src="clock.png" alt="Analog Clock Background" class="clock-background" style="border-color: black;">
+    <div class="hand hour-hand"></div>
+    <div class="hand minute-hand"></div>
+    <div class="hand second-hand"></div>
+  </div>   
+  <div id="stop">
+    <h1 style="color: white;">STOP WATCH AND TIMER</h1>
+  </div>
+  <div class="form-box">
+		<div class="button-box">
+			<div id="btn"></div>
+      <div id="flex">
+        <div>
+      <a href="timer.html" target="main">
+			<button type="button" class="toggle-btn" onclick="leftClick()">Timer</button>
+      </a>
+      </div>
+      <div>
+      <a href="stopwatch.html" target="main">
+			<button type="button" class="toggle-btn" onclick="rightClick()">Stopwatch</button>
+      </a>
+      </div>
+      </div>
+		</div>
+	</div>
+  
+  
+  <script src="script.js"></script>
+</body>
+</html>
