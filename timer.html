@@ -271,16 +271,16 @@ span{
     
     <form id="countdownForm">
         <label for="day" >Days:</label></br>
-        <input type="number" id="day" name="day" placeholder="00" min="0" required></br>
+        <input type="number" id="day" name="day" placeholder="enter days" min="0" value="0" required></br>
         
         <label for="hour">Hours:</label></br>
-        <input type="number" id="hour" name="hour" placeholder="00" min="0" required></br>
+        <input type="number" id="hour" name="hour" placeholder="enter hours" min="0" value="0" required></br>
         
         <label for="minit">Minutes:</label></br>
-        <input type="number" id="minit" name="minit" placeholder="00" min="0" required></br>
+        <input type="number" id="minit" name="minit" placeholder="enter mins" min="0" value="0" required></br>
         
         <label for="secon">Seconds:</label></br>
-        <input type="number" id="secon" name="secon" placeholder="00" min="0" required></br>
+        <input type="number" id="secon" name="secon" placeholder="enter secs" min="1" value=1 required></br>
         
         <button type="submit" id="btn">Set Countdown</button>
       </form>
@@ -302,8 +302,8 @@ span{
     </table>
       
       <script>
-   function setCountdown(event) {
-  event.preventDefault(); 
+function setCountdown(event) {
+  event.preventDefault();
   const form = document.getElementById("countdownForm");
   const daysInput = parseInt(form.elements["day"].value);
   const hoursInput = parseInt(form.elements["hour"].value);
@@ -320,62 +320,58 @@ span{
   const countdownContainer = document.getElementById("countdownContainer");
   countdownContainer.style.display = "block";
 
-  const countdownInterval = setInterval(function() {
+  updateCountdown(); // Update countdown immediately
+
+  const countdownInterval = setInterval(updateCountdown, 1000);
+
+  function updateCountdown() {
     let now = new Date();
-    let timeRemaining = countdownTime - now;
+    let timeRemaining = Math.max(0, countdownTime - now); // Ensure time remaining doesn't go negative
 
     if (timeRemaining <= 0) {
       clearInterval(countdownInterval);
       alert("Snooze!");
-      window.location.reload(); 
+      window.location.reload();
       return;
     }
 
-    let seconds = Math.floor(timeRemaining / 1000);
-    let minutes = Math.floor(timeRemaining / (1000 * 60));
-    let hours = Math.floor(timeRemaining / (1000 * 60 * 60));
-    let days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    let secondsToDisplay = Math.ceil(timeRemaining / 1000); // Use Math.ceil to round up to the nearest integer
 
-    let daysToDisplay = days;
-    let hoursToDisplay = hours - (days * 24);
-    let minutesToDisplay = minutes - (hours * 60);
-    let secondsToDisplay = seconds - (minutes * 60);
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
 
-    const daysEl = document.getElementById('days');
-    const hoursEl = document.getElementById('hours');
-    const minutesEl = document.getElementById('minutes');
-    const secondsEl = document.getElementById('seconds');
+    const days = Math.floor(secondsToDisplay / (24 * 60 * 60));
+    secondsToDisplay %= 24 * 60 * 60;
+    const hours = Math.floor(secondsToDisplay / (60 * 60));
+    secondsToDisplay %= 60 * 60;
+    const minutes = Math.floor(secondsToDisplay / 60);
+    secondsToDisplay %= 60;
 
-    if (daysToDisplay < 10)
-      daysEl.textContent = "0" + daysToDisplay;
-    else
-      daysEl.textContent = daysToDisplay;
-    if (hoursToDisplay < 10)
-      hoursEl.textContent = "0" + hoursToDisplay;
-    else
-      hoursEl.textContent = hoursToDisplay;
-    if (minutesToDisplay < 10)
-      minutesEl.textContent = "0" + minutesToDisplay;
-    else
-      minutesEl.textContent = minutesToDisplay;
-    if (secondsToDisplay < 10)
-      secondsEl.textContent = "0" + secondsToDisplay;
-    else
-      secondsEl.textContent = secondsToDisplay;
-  }, 1000);
+    daysEl.textContent = padNumber(days);
+    hoursEl.textContent = padNumber(hours);
+    minutesEl.textContent = padNumber(minutes);
+    secondsEl.textContent = padNumber(secondsToDisplay);
+  }
+
+  function padNumber(num) {
+    return num.toString().padStart(2, "0");
+  }
 }
 
-const countdownForm = document.getElementById('countdownForm');
-countdownForm.addEventListener('submit', setCountdown);
+const countdownForm = document.getElementById("countdownForm");
+countdownForm.addEventListener("submit", setCountdown);
 
-document.getElementById('showFormBtn').addEventListener('click', function() {
-  document.getElementById('popupForm').classList.add('show');
+document.getElementById("showFormBtn").addEventListener("click", function () {
+  document.getElementById("popupForm").classList.add("show");
 });
 
-document.getElementById('popupForm').addEventListener('submit', function(e) {
-  e.preventDefault(); 
-  document.getElementById('popupForm').classList.remove('show');
+document.getElementById("popupForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  document.getElementById("popupForm").classList.remove("show");
 });
+
 
       </script>
       
